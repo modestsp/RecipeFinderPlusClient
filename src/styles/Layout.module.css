@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+
 .container {
     display: flex;
     flex-direction: column;
@@ -7,6 +9,8 @@
     background-color: rgba(22, 22, 19, 0.13);
     padding-left: 12rem;
     padding-right: 12rem;
+    font-family: 'Comic Neue', cursive;
+
 }
 
 .header {
