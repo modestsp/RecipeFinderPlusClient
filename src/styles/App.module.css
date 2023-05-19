@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap');
+
 .mainContainer {
     display: flex;
     flex-direction: column;
@@ -7,14 +13,60 @@
     background-size: cover;
     /* min-width: 100%; */
     flex: 1;
+    /* font-family: 'Indie Flower', cursive; */
+    /* font-family: 'Lobster', cursive; */
+    /* font-family: 'Amatic SC', cursive; */
+    /* font-family: 'Fredoka', sans-serif; */
 }
 
+
+.addParamContainer{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem
+}
+
+.addParamContainer input {
+    padding: 0.25rem;
+}
+
+.addButton{
+    color: green;
+    border: none;
+    background: none;
+    font-size: 2rem;
+}
+
+
 .paramsList{
-    padding: 1rem;
     display: flex;
     gap: 2rem;
+    padding: 1rem;
 }
 
 .paramsListItem{
     display: flex;
+    gap: 0.25rem;
+    padding: 1rem;
+    align-items: center;
+}
+
+.removeParamButton{
+    color: red;
+    border: none;
+    background: none;
+    font-size: 0.8rem;
+}
+
+.param{
+    font-size: 1.25rem;
+    text-align: center;
+}
+
+.searchButton{
+    background-color: tomato;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 0.25rem;
+    font-size: 1.1rem;
 }
