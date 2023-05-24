@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import styles from "./styles/App.module.css";
-import { GrAdd } from "react-icons/gr";
+import { Gr } from "react-icons/gr";
+import RecipeCard from "./components/RecipeCard";
 
 function App() {
   const [current, setCurrent] = useState<string>("");
@@ -27,6 +28,7 @@ function App() {
         import.meta.env.VITE_API_KEY
       }`
     );
+    console.log(recipes);
   };
 
   return (
@@ -39,7 +41,7 @@ function App() {
           value={current}
           onChange={(e) => setCurrent(e.target.value)}
           type="text"
-          placeholder="Add a ingredient"
+          placeholder="Add an ingredient"
         />
         <button
           onClick={() => setParams([...params, current])}
@@ -68,12 +70,7 @@ function App() {
       <div className={styles.recipesContainer}>
         {errorMsg && <p>{errorMsg}</p>}
         {recipes.map((recipe) => {
-          return (
-            <div className={styles.recipe} key={recipe.id}>
-              <h1>{recipe.title}</h1>
-              <img src={recipe.image} alt={recipe.title} />
-            </div>
-          );
+          return <RecipeCard recipe={recipe} key={recipe.id} />;
         })}
       </div>
     </div>
