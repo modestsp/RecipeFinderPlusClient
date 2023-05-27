@@ -4,3 +4,8 @@ export interface IRecipe{
     image: string
     likes: number
 }
+
+export interface IRecipeStep{
+    number: number
+    step: string
+}
