@@ -16,20 +16,17 @@ const Recipe = () => {
       }&includeNutrition=false`
     ).then((res) => res.json())
   );
-  const recipeInstructions = useQuery("recipeInstructions", () =>
-    fetch(
-      `${
-        import.meta.env.VITE_RECIPES_ROUTE
-      }/${recipeId}/analyzedInstructions?apiKey=${import.meta.env.VITE_API_KEY}`
-    ).then((res) => res.json())
-  );
+  // const recipeInstructions = useQuery("recipeInstructions", () =>
+  //   fetch(
+  //     `${
+  //       import.meta.env.VITE_RECIPES_ROUTE
+  //     }/${recipeId}/analyzedInstructions?apiKey=${import.meta.env.VITE_API_KEY}`
+  //   ).then((res) => res.json())
+  // );
 
-  if (recipeDetails.isLoading || recipeInstructions.isLoading)
-    return <div>Loading...</div>;
-  if (recipeDetails.error || recipeInstructions.error) return <div>Error</div>;
-  const { steps } = recipeInstructions.data[0];
+  if (recipeDetails.isLoading) return <div>Loading...</div>;
+  if (recipeDetails.error) return <div>Error</div>;
   console.log(recipeDetails.data);
-  console.log(recipeInstructions.data);
 
   return (
     <div>
@@ -46,14 +43,18 @@ const Recipe = () => {
           alt={recipeDetails.data.title}
         />
       </div>
-      <ul className={styles.ingredientsList}>Ingredients</ul>
-      {recipeDetails.data.extendedIngredients.map(
-        (ingredient: IRecipeIngredient) => (
-          <p>{ingredient.original}</p>
-        )
-      )}
+      <h3 className={styles.ingredientsTitle}>Ingredients</h3>
+      <ul className={styles.ingredientsList}>
+        {recipeDetails.data.extendedIngredients.map(
+          (ingredient: IRecipeIngredient) => (
+            <p className={styles.ingredient} key={ingredient.original}>
+              {ingredient.original}
+            </p>
+          )
+        )}
+      </ul>
       <div className={styles.stepsContainer}>
-        <h3>Instructions</h3>
+        <h3 className={styles.instructionsTitle}>Instructions</h3>
         {recipeDetails.data.analyzedInstructions[0].steps.map(
           (step: IRecipeStep) => (
             <div className={styles.stepContainer} key={step.number}>
