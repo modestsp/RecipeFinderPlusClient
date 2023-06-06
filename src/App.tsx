@@ -1,8 +1,5 @@
 import { useEffect, useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import styles from "./styles/App.module.css";
-import { Gr } from "react-icons/gr";
 import RecipeCard from "./components/RecipeCard";
 
 function App() {
@@ -10,6 +7,11 @@ function App() {
   const [params, setParams] = useState<string[]>([]);
   const [recipes, setRecipes] = useState<any[]>([]);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
+
+  const handleAddParam = () => {
+    setParams([...params, current]);
+    setCurrent("");
+  };
 
   const handleSubmit = async () => {
     const paramsToSearch = params.join(",");
@@ -35,6 +37,10 @@ function App() {
     <div className={styles.mainContainer}>
       <h1>RecipeFinderPlus</h1>
       <p>Welcome to the recipe finder</p>
+      <p>
+        Embrace your inner chef! Let's find delicious recipes for your
+        ingredients. 🍽️🔎
+      </p>
       <div className={styles.addParamContainer}>
         <input
           name="word"
@@ -43,10 +49,7 @@ function App() {
           type="text"
           placeholder="Add an ingredient"
         />
-        <button
-          onClick={() => setParams([...params, current])}
-          className={styles.addButton}
-        >
+        <button onClick={handleAddParam} className={styles.addButton}>
           +
         </button>
       </div>
