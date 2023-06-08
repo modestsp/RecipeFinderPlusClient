@@ -1,25 +1,70 @@
-.stepsContainer{
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
 .recipeInfoContainer{
     position: relative;
 }
 
 .recipeTitle{
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+}
+
+.recipeReadyInMinutes{
+    background-color: gainsboro;
+    position: absolute;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    color: black;
+    border: 1px solid gray;
+}
+
+.recipeImage{
+   width: 350px; 
+   height: 250px;
+   margin-bottom: 0.5rem;
+}
+
+.ingredientsTitle{
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+}
+
+.ingredientsList{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    background-color: #fff;
+    padding: 0.25rem;
+    border: 1px solid black;
+    border-radius: 0.5rem;
+    font-size: 1.15rem;
+    font-weight: 600;
+}
+
+.instructionsTitle{
     font-size: 1.5rem;
     margin-bottom: 0.5rem;
 }
 
-.recipeReadyInMinutes{
-    background-color: bisque;
-    position: absolute;
+.stepsContainer{
+    display: flex;
+    flex-direction: column;
 }
 
-.recipeImage{
-   width: 300px; 
-   height: 200px;
-   margin-bottom: 0.5rem;
+.stepContainer{
+    background-color: aliceblue;
+    padding: 0.25rem;
+    border: 1px solid black;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.stepContainer h2{
+    margin-bottom: 0.5rem;
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.stepContainer p{
+    font-weight: 600;
+    font-size: 1.1rem;
 }

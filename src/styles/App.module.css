@@ -82,7 +82,7 @@
     gap: 1rem;
 }
 
- /* @media only screen and (min-width: 768px){ 
+ @media only screen and (min-width: 768px){ 
    .app{
     padding: 0 2rem 0 2rem;
     background-color: rgba(0, 255, 255, 0.308);
@@ -95,6 +95,11 @@
         padding: 0 12rem 0 12rem;
         background-color: rgba(116, 71, 13, 0.603);
     }
+
+    .recipesContainer{
+        display: flex;
+        flex-direction: row;
+    }
 }
 
 @media only screen and (min-width: 1400px){
@@ -102,4 +107,4 @@
         padding: 0 20rem 0 20rem;
         background-color: rgb(27, 51, 43);
     }
-} */
+}
