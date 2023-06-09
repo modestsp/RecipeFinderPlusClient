@@ -5,7 +5,7 @@ import useSWR from "swr";
 import { fetcher } from "../utils/fetcher";
 import { IRecipeIngredient, IRecipeStep } from "../utils/types";
 import { useRecipesStore } from "../utils/context";
-import { useQuery } from "react-query";
+import { useMutation, useQuery } from "react-query";
 
 const Recipe = () => {
   const { recipeId } = useParams();
@@ -16,17 +16,30 @@ const Recipe = () => {
       }&includeNutrition=false`
     ).then((res) => res.json())
   );
-  // const recipeInstructions = useQuery("recipeInstructions", () =>
-  //   fetch(
-  //     `${
-  //       import.meta.env.VITE_RECIPES_ROUTE
-  //     }/${recipeId}/analyzedInstructions?apiKey=${import.meta.env.VITE_API_KEY}`
-  //   ).then((res) => res.json())
-  // );
+
+  const mutation = useMutation({
+    mutationFn: (data: any) => {
+      return fetch("https://localhost:7222/recipes", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+    },
+  });
 
   if (recipeDetails.isLoading) return <div>Loading...</div>;
   if (recipeDetails.error) return <div>Error</div>;
-  console.log(recipeDetails.data);
+
+  const handleAddRecipe = () => {
+    console.log({ id: recipeId, title: recipeDetails.data.title });
+    mutation.mutate({
+      id: recipeId,
+      title: recipeDetails.data.title,
+      imageUrl: recipeDetails.data.image,
+    });
+  };
 
   return (
     <div>
@@ -35,8 +48,6 @@ const Recipe = () => {
         <h2 className={styles.recipeReadyInMinutes}>
           {recipeDetails.data.readyInMinutes}'
         </h2>
-        {/* <p>{recipeDetails.data.instructions}</p> */}
-        {/* <p>{recipeDetails.data.analyzedInstructions[0].steps[0].step}</p> */}
         <img
           className={styles.recipeImage}
           src={recipeDetails.data.image}
@@ -65,6 +76,9 @@ const Recipe = () => {
         )}
       </div>
       <p>{`Rate this Recipe! :) HandsUp or HandsDown`}</p>
+      <button onClick={handleAddRecipe}>
+        {mutation.isLoading ? "Loading..." : "Like"}
+      </button>
     </div>
   );
 };
