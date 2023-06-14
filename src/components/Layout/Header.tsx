@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Header = () => {
   return (
     <header className={styles.header}>
-      <p>LOGO</p>
+      <p className={styles.logo}>LOGO</p>
       <ul>
         <li>
           <Link to={"/trending"}>Trending</Link>

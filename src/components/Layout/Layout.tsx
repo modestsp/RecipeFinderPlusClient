@@ -8,7 +8,7 @@ interface ILayout {
 
 const Layout = ({ children }: ILayout): JSX.Element => {
   return (
-    <div className={styles.container}>
+    <div className={styles.app}>
       <Header />
       {children}
       <Footer />
