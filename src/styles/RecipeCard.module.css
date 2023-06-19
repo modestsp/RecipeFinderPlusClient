@@ -1,14 +1,25 @@
 .container {
-    display: flex;
-    flex-direction: column;
-    border: 1px solid black;
-    padding: 0.25rem;
-    border-radius: 0.25rem;
+  display: flex;
+  flex-direction: column;
+  /* border: 1px solid rgba(0, 0, 0, 0.315); */
+  border-radius: 0.25rem;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .recipeTitle {
-    font-size: 1.35rem;
-    margin-bottom: 0.5rem;
+  font-size: 1.35rem;
+  margin-bottom: 0.5rem;
+  padding: 0.25rem;
 }
 
+.cardFooter {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin: 0.25rem;
+}
 
+.cardFooter span {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
