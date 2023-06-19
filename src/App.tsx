@@ -6,14 +6,27 @@ function App() {
   const [current, setCurrent] = useState<string>("");
   const [params, setParams] = useState<string[]>([]);
   const [recipes, setRecipes] = useState<any[]>([]);
+  const [inputError, setInputError] = useState<string>(" ");
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
 
   const handleAddParam = () => {
+    if (current.length === 0) {
+      setInputError("Please enter an ingredient");
+      setTimeout(() => {
+        setInputError(" ");
+      }, 3000);
+      return;
+    }
+
     setParams([...params, current]);
     setCurrent("");
   };
 
   const handleSubmit = async () => {
+    if (params.length === 0) {
+      setErrorMsg("Please enter at least one ingredient");
+      return;
+    }
     const paramsToSearch = params.join(",");
     const result = await fetch(
       `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${paramsToSearch}&number=2&apiKey=${
@@ -35,9 +48,11 @@ function App() {
 
   return (
     <div className={styles.mainContainer}>
-      <h1>RecipeFinderPlus</h1>
-      <p>Welcome to the recipe finder</p>
-      <p>
+      <h1 className={styles.title}>
+        Recipe Finder <span className={styles.plus}>Plus</span>
+      </h1>
+      <h3>Welcome to the recipe finder</h3>
+      <p className={styles.welcomeMsg}>
         Embrace your inner chef! Let's find delicious recipes for your
         ingredients. 🍽️🔎
       </p>
@@ -67,6 +82,7 @@ function App() {
           );
         })}
       </ul>
+      <h3>{inputError}</h3>
       <button className={styles.searchButton} onClick={handleSubmit}>
         Search
       </button>
