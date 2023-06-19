@@ -53,8 +53,8 @@ function App() {
       </h1>
       <h3>Welcome to the recipe finder</h3>
       <p className={styles.welcomeMsg}>
-        Embrace your inner chef! Let's find delicious recipes for your
-        ingredients. 🍽️🔎
+        🍽️Embrace your inner chef! Let's find delicious recipes for your
+        ingredients.🔎
       </p>
       <div className={styles.addParamContainer}>
         <input
