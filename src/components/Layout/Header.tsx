@@ -1,5 +1,6 @@
 import styles from "../../styles/Layout.module.css";
 import { Link } from "react-router-dom";
+import githubIcon from "../../assets/githubIcon.svg";
 
 const Header = () => {
   return (
@@ -7,12 +8,20 @@ const Header = () => {
       <p className={styles.logo}>LOGO</p>
       <ul>
         <li>
-          <Link to={"/trending"}>Trending</Link>
+          <Link className={styles.link} to={"/trending"}>
+            Trending
+          </Link>
         </li>
         <li>
-          <Link to={"/"}>Home</Link>
+          <Link className={styles.link} to={"/"}>
+            Home
+          </Link>
         </li>
-        <li>Git</li>
+        <li>
+          <Link to="https://github.com/modestsp">
+            <img src={githubIcon} alt="github" />
+          </Link>
+        </li>
       </ul>
     </header>
   );
