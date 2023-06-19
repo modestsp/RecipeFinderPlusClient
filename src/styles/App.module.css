@@ -1,110 +1,118 @@
-@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap");
 
 .mainContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    /* background-image: url('../assets/blob.svg'); */
-    background-repeat: no-repeat; 
-    background-size: cover;
-    /* min-width: 100%; */
-    flex: 1;
-    /* font-family: 'Indie Flower', cursive; */
-    /* font-family: 'Lobster', cursive; */
-    /* font-family: 'Amatic SC', cursive; */
-    /* font-family: 'Fredoka', sans-serif; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* background-image: url('../assets/blob.svg'); */
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* min-width: 100%; */
+  flex: 1;
+  /* font-family: 'Indie Flower', cursive; */
+  /* font-family: 'Lobster', cursive; */
+  /* font-family: 'Amatic SC', cursive; */
+  /* font-family: 'Fredoka', sans-serif; */
 }
 
+.title {
+  margin-bottom: 1rem;
+}
 
-.addParamContainer{
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin-top: 1rem;
+.plus {
+  color: tomato;
+  text-decoration: underline;
+}
+
+.welcomeMsg {
+  font-weight: 700;
+}
+.addParamContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
 }
 
 .addParamContainer input {
-    padding: 0.25rem;
-    font-size: 1.2rem;
+  padding: 0.25rem;
+  font-size: 1.2rem;
 }
 
-.addButton{
-    color: green;
-    border: none;
-    background: none;
-    font-size: 2.3rem;
+.addButton {
+  color: green;
+  border: none;
+  background: none;
+  font-size: 2.3rem;
 }
 
-
-.paramsList{
-    display: flex;
-    padding: 1rem;
-    gap: 1rem
+.paramsList {
+  display: flex;
+  padding: 1rem;
+  gap: 1rem;
 }
 
-.paramsListItem{
-    display: flex;
-    gap: 0.25rem;
-    /* padding: 1rem; */
-    align-items: center;
-    font-weight: 700;
+.paramsListItem {
+  display: flex;
+  gap: 0.25rem;
+  /* padding: 1rem; */
+  align-items: center;
+  font-weight: 700;
 }
 
-.removeParamButton{
-    color: red;
-    border: none;
-    background: none;
-    font-size: 0.8rem;
+.removeParamButton {
+  color: red;
+  border: none;
+  background: none;
+  font-size: 0.8rem;
 }
 
-.param{
-    font-size: 1.25rem;
-    text-align: center;
+.param {
+  font-size: 1.25rem;
+  text-align: center;
 }
 
-.searchButton{
-    background-color: tomato;
-    padding: 0.5rem;
-    border: none;
-    border-radius: 0.25rem;
-    font-size: 1.1rem;
-    margin-bottom: 2rem;
+.searchButton {
+  background-color: tomato;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 0.25rem;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
 }
 
-
-.recipesContainer{
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+.recipesContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
- @media only screen and (min-width: 768px){ 
-   .app{
+@media only screen and (min-width: 768px) {
+  .app {
     padding: 0 2rem 0 2rem;
     background-color: rgba(0, 255, 255, 0.308);
-   } 
- } 
-
-
-@media only screen and (min-width: 1024px){
-    .app{
-        padding: 0 12rem 0 12rem;
-        background-color: rgba(116, 71, 13, 0.603);
-    }
-
-    .recipesContainer{
-        display: flex;
-        flex-direction: row;
-    }
+  }
 }
 
-@media only screen and (min-width: 1400px){
-    .app{
-        padding: 0 20rem 0 20rem;
-        background-color: rgb(27, 51, 43);
-    }
+@media only screen and (min-width: 1024px) {
+  .app {
+    padding: 0 12rem 0 12rem;
+    background-color: rgba(116, 71, 13, 0.603);
+  }
+
+  .recipesContainer {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+@media only screen and (min-width: 1400px) {
+  .app {
+    padding: 0 20rem 0 20rem;
+    background-color: rgb(27, 51, 43);
+  }
 }
