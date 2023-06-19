@@ -30,6 +30,7 @@
 
 .welcomeMsg {
   font-weight: 700;
+  font-size: 1.15rem;
 }
 .addParamContainer {
   display: flex;
