@@ -5,7 +5,9 @@ import githubIcon from "../../assets/githubIcon.svg";
 const Header = () => {
   return (
     <header className={styles.header}>
-      <p className={styles.logo}>LOGO</p>
+      <p className={styles.logo}>
+        RF<span>Plus</span>
+      </p>
       <ul>
         <li>
           <Link className={styles.link} to={"/trending"}>
