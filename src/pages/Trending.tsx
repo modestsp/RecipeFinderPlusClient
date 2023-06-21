@@ -10,15 +10,12 @@ const Trending = () => {
   console.log(data);
   return (
     <div className={styles.mainContainer}>
-      <h1>TRENDING RECIPES</h1>
-      {data.map((recipe: IRecipe) => (
-        <RecipeCard recipe={recipe} key={recipe.id} />
-        // <div key={recipe.id}>
-        //   <h2>{recipe.title}</h2>
-        //   <img src={recipe.image} alt={recipe.title} />
-        //   <p>likes: {recipe.likes}</p>
-        // </div>
-      ))}
+      <h1 className={styles.title}>Trending Recipes</h1>
+      <div className={styles.recipesContainer}>
+        {data.map((recipe: IRecipe) => (
+          <RecipeCard recipe={recipe} key={recipe.id} />
+        ))}
+      </div>
     </div>
   );
 };
