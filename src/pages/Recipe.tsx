@@ -1,10 +1,6 @@
 import styles from "../styles/RecipePage.module.css";
-import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import useSWR from "swr";
-import { fetcher } from "../utils/fetcher";
 import { IRecipeIngredient, IRecipeStep } from "../utils/types";
-import { useRecipesStore } from "../utils/context";
 import { useMutation, useQuery } from "react-query";
 
 const Recipe = () => {
