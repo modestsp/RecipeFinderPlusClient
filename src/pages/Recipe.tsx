@@ -2,6 +2,7 @@ import styles from "../styles/RecipePage.module.css";
 import { useParams } from "react-router-dom";
 import { IRecipeIngredient, IRecipeStep } from "../utils/types";
 import { useMutation, useQuery } from "react-query";
+import { AiOutlineLike, AiOutlineDislike } from "react-icons/ai";
 
 const Recipe = () => {
   const { recipeId } = useParams();
@@ -33,7 +34,8 @@ const Recipe = () => {
     mutation.mutate({
       id: recipeId,
       title: recipeDetails.data.title,
-      imageUrl: recipeDetails.data.image,
+      image: recipeDetails.data.image,
+      likes: 1,
     });
   };
 
@@ -71,9 +73,9 @@ const Recipe = () => {
           )
         )}
       </div>
-      <p>{`Rate this Recipe! :) HandsUp or HandsDown`}</p>
-      <button onClick={handleAddRecipe}>
-        {mutation.isLoading ? "Loading..." : "Like"}
+      <p style={{ fontWeight: "bold" }}>{`Leave a like if you like it! :) `}</p>
+      <button className={styles.likeButton} onClick={handleAddRecipe}>
+        {mutation.isLoading ? "Loading..." : <AiOutlineLike />}
       </button>
     </div>
   );
