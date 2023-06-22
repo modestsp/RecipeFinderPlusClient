@@ -2,6 +2,7 @@ import { useQuery } from "react-query";
 import { IRecipe } from "../utils/types";
 import RecipeCard from "../components/RecipeCard";
 import styles from "../styles/Trending.module.css";
+
 const Trending = () => {
   const { data, isLoading, isError } = useQuery("trendingRecipes", () =>
     fetch(`https://localhost:7222/recipes/trending`).then((res) => res.json())
