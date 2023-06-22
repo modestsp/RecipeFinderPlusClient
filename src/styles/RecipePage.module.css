@@ -69,3 +69,8 @@
   font-weight: 600;
   font-size: 1.1rem;
 }
+
+.likeButton {
+  width: 50px;
+  margin-top: 0.25rem;
+}

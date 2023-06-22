@@ -88,13 +88,11 @@
 @media only screen and (min-width: 1024px) {
   .app {
     padding: 0 12rem 0 12rem;
-    background-color: rgba(116, 71, 13, 0.603);
   }
 }
 
 @media only screen and (min-width: 1400px) {
   .app {
     padding: 0 20rem 0 20rem;
-    background-color: rgb(27, 51, 43);
   }
 }
