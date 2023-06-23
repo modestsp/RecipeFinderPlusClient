@@ -1,6 +1,19 @@
 import { useEffect, useState } from "react";
 import styles from "./styles/App.module.css";
 import RecipeCard from "./components/RecipeCard";
+import { motion } from "framer-motion";
+
+const staggerAnimParam = {
+  hidden: {
+    opacity: 0,
+  },
+  visible: {
+    opacity: 1,
+  },
+  exit: {
+    opacity: 0,
+  },
+};
 
 function App() {
   const [current, setCurrent] = useState<string>("");
@@ -11,7 +24,7 @@ function App() {
 
   const handleAddParam = () => {
     if (current.length === 0) {
-      setInputError("Please enter an ingredient");
+      setInputError("Cannot add empty ingredient");
       setTimeout(() => {
         setInputError(" ");
       }, 3000);
@@ -24,7 +37,11 @@ function App() {
 
   const handleSubmit = async () => {
     if (params.length === 0) {
-      setErrorMsg("Please enter at least one ingredient");
+      setInputError("Please enter at least one ingredient");
+      setTimeout(() => {
+        setInputError("");
+      }, 3000);
+
       return;
     }
     const paramsToSearch = params.join(",");
@@ -34,8 +51,12 @@ function App() {
       }`
     );
     const recipes = await result.json();
-    if (recipes.length == 0) setErrorMsg("No recipes found");
-    else setErrorMsg(null);
+    if (recipes.length == 0) {
+      setErrorMsg("No recipes found");
+      setTimeout(() => {
+        setErrorMsg(null);
+      }, 3000);
+    } else setErrorMsg(null);
     setRecipes(recipes);
 
     console.log(
@@ -83,11 +104,15 @@ function App() {
         })}
       </ul>
       <h3>{inputError}</h3>
-      <button className={styles.searchButton} onClick={handleSubmit}>
+      <motion.button
+        whileTap={{ scale: 0.97 }}
+        className={styles.searchButton}
+        onClick={handleSubmit}
+      >
         Search
-      </button>
+      </motion.button>
       <div className={styles.recipesContainer}>
-        {errorMsg && <p>{errorMsg}</p>}
+        {errorMsg && <p className={styles.errorMsg}>{errorMsg}</p>}
         {recipes.map((recipe) => {
           return <RecipeCard recipe={recipe} key={recipe.id} />;
         })}
