@@ -3,18 +3,6 @@ import styles from "./styles/App.module.css";
 import RecipeCard from "./components/RecipeCard";
 import { motion } from "framer-motion";
 
-const staggerAnimParam = {
-  hidden: {
-    opacity: 0,
-  },
-  visible: {
-    opacity: 1,
-  },
-  exit: {
-    opacity: 0,
-  },
-};
-
 function App() {
   const [current, setCurrent] = useState<string>("");
   const [params, setParams] = useState<string[]>([]);
