@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
-import styles from "./styles/App.module.css";
+// import  from "./styles/App.module.css";
 import RecipeCard from "./components/RecipeCard";
 import { motion } from "framer-motion";
+import { Input } from "./components/ui/input";
+import { Button } from "./components/ui/button";
+import { GrFormClose } from "react-icons/gr";
 
 function App() {
   const [current, setCurrent] = useState<string>("");
@@ -14,7 +17,7 @@ function App() {
     if (current.length === 0) {
       setInputError("Cannot add empty ingredient");
       setTimeout(() => {
-        setInputError(" ");
+        setInputError("");
       }, 3000);
       return;
     }
@@ -56,51 +59,59 @@ function App() {
   };
 
   return (
-    <div className={styles.mainContainer}>
-      <h1 className={styles.title}>
-        Recipe Finder <span className={styles.plus}>Plus</span>
+    <div className="flex p-4 flex-col items-center ">
+      <h1 className="text-3xl font-bold">
+        Recipe Finder <span>Plus</span>
       </h1>
       <h3>Welcome to the recipe finder</h3>
-      <p className={styles.welcomeMsg}>
+      <p>
         🍽️Embrace your inner chef! Let's find delicious recipes for your
         ingredients.🔎
       </p>
-      <div className={styles.addParamContainer}>
-        <input
+      <div className="flex items-center gap-4 mt-4">
+        {/* <input
           name="word"
           value={current}
           onChange={(e) => setCurrent(e.target.value)}
           type="text"
           placeholder="Add an ingredient"
+        /> */}
+        <Input
+          value={current}
+          onChange={(e) => setCurrent(e.target.value)}
+          type="text"
+          placeholder="Add an ingredient"
         />
-        <button onClick={handleAddParam} className={styles.addButton}>
+        <button
+          className="rounded-lg text-2xl text-green-800 "
+          onClick={handleAddParam}
+        >
           +
         </button>
       </div>
-      <ul className={styles.paramsList}>
+      <ul className="flex gap-4 mt-4 mb-2">
         {params.map((param, index) => {
           return (
             <li
+              className="flex items-center bg-lime-300 p-1  gap-1 border border-gray-500 rounded-sm hover:bg-lime-200 cursor-pointer "
               key={index}
-              className={styles.paramsListItem}
               onClick={() => setParams(params.filter((w) => w !== param))}
             >
-              <span className={styles.removeParamButton}>X</span>
-              <p className={styles.param}>{param}</p>
+              <GrFormClose />
+              <p className="text-sm font-semibold ">{param}</p>
             </li>
           );
         })}
       </ul>
       <h3>{inputError}</h3>
-      <motion.button
-        whileTap={{ scale: 0.97 }}
-        className={styles.searchButton}
-        onClick={handleSubmit}
-      >
+      {/* <motion.button whileTap={{ scale: 0.97 }} onClick={handleSubmit}>
         Search
-      </motion.button>
-      <div className={styles.recipesContainer}>
-        {errorMsg && <p className={styles.errorMsg}>{errorMsg}</p>}
+      </motion.button> */}
+      <Button onClick={handleSubmit} variant="search">
+        Search
+      </Button>
+      <div className="mt-4">
+        {errorMsg && <p>{errorMsg}</p>}
         {recipes.map((recipe) => {
           return <RecipeCard recipe={recipe} key={recipe.id} />;
         })}

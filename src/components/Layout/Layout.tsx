@@ -1,6 +1,5 @@
 import Footer from "./Footer";
 import Header from "./Header";
-import styles from "../../styles/Layout.module.css";
 
 interface ILayout {
   children: JSX.Element;
@@ -8,7 +7,7 @@ interface ILayout {
 
 const Layout = ({ children }: ILayout): JSX.Element => {
   return (
-    <div className={styles.app}>
+    <div className="flex bg-[#e6e6e6] flex-col min-h-screen">
       <Header />
       {children}
       <Footer />
