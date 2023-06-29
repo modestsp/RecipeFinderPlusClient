@@ -1,4 +1,3 @@
-import styles from "../styles/RecipePage.module.css";
 import { useParams } from "react-router-dom";
 import { IRecipeIngredient, IRecipeStep } from "../utils/types";
 import { useMutation, useQuery } from "react-query";
@@ -41,32 +40,24 @@ const Recipe = () => {
 
   return (
     <div>
-      <div className={styles.recipeInfoContainer}>
-        <h1 className={styles.recipeTitle}>{recipeDetails.data.title}</h1>
-        <h2 className={styles.recipeReadyInMinutes}>
-          {recipeDetails.data.readyInMinutes}'
-        </h2>
-        <img
-          className={styles.recipeImage}
-          src={recipeDetails.data.image}
-          alt={recipeDetails.data.title}
-        />
+      <div>
+        <h1>{recipeDetails.data.title}</h1>
+        <h2>{recipeDetails.data.readyInMinutes}'</h2>
+        <img src={recipeDetails.data.image} alt={recipeDetails.data.title} />
       </div>
-      <h3 className={styles.ingredientsTitle}>Ingredients</h3>
-      <ul className={styles.ingredientsList}>
+      <h3>Ingredients</h3>
+      <ul>
         {recipeDetails.data.extendedIngredients.map(
           (ingredient: IRecipeIngredient) => (
-            <p className={styles.ingredient} key={ingredient.original}>
-              {ingredient.original}
-            </p>
+            <p key={ingredient.original}>{ingredient.original}</p>
           )
         )}
       </ul>
-      <div className={styles.stepsContainer}>
-        <h3 className={styles.instructionsTitle}>Instructions</h3>
+      <div>
+        <h3>Instructions</h3>
         {recipeDetails.data.analyzedInstructions[0].steps.map(
           (step: IRecipeStep) => (
-            <div className={styles.stepContainer} key={step.number}>
+            <div key={step.number}>
               <h2>Step {step.number}</h2>
               <p>{step.step}</p>
             </div>
@@ -74,7 +65,7 @@ const Recipe = () => {
         )}
       </div>
       <p style={{ fontWeight: "bold" }}>{`Leave a like if you like it! :) `}</p>
-      <button className={styles.likeButton} onClick={handleAddRecipe}>
+      <button onClick={handleAddRecipe}>
         {mutation.isLoading ? "Loading..." : <AiOutlineLike />}
       </button>
     </div>

@@ -1,7 +1,6 @@
 import { useQuery } from "react-query";
 import { IRecipe } from "../utils/types";
 import RecipeCard from "../components/RecipeCard";
-import styles from "../styles/Trending.module.css";
 
 const Trending = () => {
   const { data, isLoading, isError } = useQuery("trendingRecipes", () =>
@@ -10,9 +9,9 @@ const Trending = () => {
   if (isLoading) return <div>Loading...</div>;
   console.log(data);
   return (
-    <div className={styles.mainContainer}>
-      <h1 className={styles.title}>Trending Recipes</h1>
-      <div className={styles.recipesContainer}>
+    <div>
+      <h1>Trending Recipes</h1>
+      <div>
         {data.map((recipe: IRecipe) => (
           <RecipeCard recipe={recipe} key={recipe.id} />
         ))}

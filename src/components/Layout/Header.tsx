@@ -1,4 +1,3 @@
-import styles from "../../styles/Layout.module.css";
 import { Link, useLocation } from "react-router-dom";
 import githubIcon from "../../assets/githubIcon.svg";
 import { useEffect, useState } from "react";
@@ -15,22 +14,19 @@ const Header = () => {
   });
   console.log(location.pathname);
   return (
-    <header className={styles.header}>
-      <p className={styles.logo}>
+    <header className="flex justify-between shadow bg-lime-200 align-middle py-4 px-2 border border-gray-300">
+      <p>
         RF<span>Plus</span>
       </p>
-      <ul>
+      <ul className="flex gap-4">
         <li>
-          <Link className={styles.link} to={"/trending"}>
-            Trending
-          </Link>
+          <Link to={"/trending"}>Trending</Link>
         </li>
         <li>
           <Link
             style={{
               textDecoration: tabSelected === "Home" ? "underline" : "",
             }}
-            className={styles.link}
             to={"/"}
           >
             Home
