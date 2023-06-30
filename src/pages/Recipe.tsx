@@ -33,7 +33,12 @@ const Recipe = () => {
     },
   });
 
-  if (recipeDetails.isLoading) return <div>Loading...</div>;
+  if (recipeDetails.isLoading)
+    return (
+      <div className="flex flex-1 justify-center items-center min-w-full min-h-full">
+        <p className="text-2xl">Loading...</p>
+      </div>
+    );
   if (recipeDetails.error) return <div>Error</div>;
 
   const handleAddRecipe = () => {
