@@ -54,28 +54,33 @@ const Recipe = () => {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>{recipeDetails.data.title}</CardTitle>
+        <CardTitle className="md:text-3xl text-orange-500 text-2xl font-bold ">
+          {recipeDetails.data.title}
+        </CardTitle>
         {/* <CardDescription>
               Ready in {recipeDetails.data.readyInMinutes}'
             </CardDescription> */}
       </CardHeader>
       <CardContent>
         <img src={recipeDetails.data.image} alt={recipeDetails.data.title} />
-
-        <p className="text-3xl font-bold mt-2 mb-2">Ingredients</p>
-        <ul className="list-disc pl-7 bg-slate-300 rounded-sm shadow-lg p-2">
-          {recipeDetails.data.extendedIngredients.map(
-            (ingredient: IRecipeIngredient) => (
-              <li key={ingredient.original}>{ingredient.original}</li>
-            )
-          )}
-        </ul>
-        <div>
-          <p className="text-3xl font-bold mt-2 mb-2">Instructions</p>
+        <div className="border lg:w-1/2  border-gray-400 rounded-sm mt-2 px-1 py-1 ">
+          <p className="lg:text-3xl text-2xl font-bold mb-1 ">Ingredients</p>
+          <ul className="list-disc pl-7  ">
+            {recipeDetails.data.extendedIngredients.map(
+              (ingredient: IRecipeIngredient) => (
+                <li key={ingredient.original}>{ingredient.original}</li>
+              )
+            )}
+          </ul>
+        </div>
+        <div className="mt-2 px-1 py-1">
+          <p className="lg:text-3xl text-2xl font-bold mt-2 mb-2">
+            Instructions
+          </p>
           {recipeDetails.data.analyzedInstructions[0].steps.map(
             (step: IRecipeStep) => (
               <ul
-                className="list-disc pl-4 shadow bg-gray-400 mb-2 rounded-sm py-1"
+                className="list-disc pl-4 mb-2 rounded-sm py-1"
                 key={step.number}
               >
                 <p className="text-xl font-semibold ">Step {step.number}</p>

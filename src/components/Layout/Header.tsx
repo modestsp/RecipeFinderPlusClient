@@ -14,7 +14,7 @@ const Header = () => {
   });
   console.log(location.pathname);
   return (
-    <header className="flex justify-between shadow bg-lime-200 align-middle py-4 px-2 border border-gray-300">
+    <header className="flex justify-between shadow bg-[#e6e6e6]  align-middle py-4 px-2 border border-gray-300">
       <p>
         RF<span>Plus</span>
       </p>

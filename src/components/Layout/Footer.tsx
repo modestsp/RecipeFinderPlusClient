@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="flex gap-4 font-semibold mt-auto bg-lime-200 shadow justify-center items-center p-4 border-t-2 border-gray-400">
+    <footer className="flex gap-4 font-semibold mt-auto shadow justify-center items-center p-4 border bg-[#e6e6e6]  border-gray-300 ">
       <Link to="https://github.com/modestsp">
         <img src={githubIcon} alt="github" />
       </Link>
