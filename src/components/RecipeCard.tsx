@@ -25,9 +25,11 @@ const RecipeCard = ({ recipe }: RecipeCardProps) => {
     //   </div>
     // </div>
     <Link to={`/recipes/${recipe.id}`}>
-      <Card className="bg-lime-400 m-2">
+      <Card className="bg-[#e6e6e6] border border-gray-400  m-2">
         <CardHeader>
-          <CardTitle>{recipe.title}</CardTitle>
+          <CardTitle className="lg:text-3xl text-2xl text-orange-500 font-bold hover:underline">
+            {recipe.title}
+          </CardTitle>
         </CardHeader>
         <CardContent>
           <img src={recipe.image} alt={recipe.title} />
