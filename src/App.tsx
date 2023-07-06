@@ -60,10 +60,10 @@ function App() {
 
   return (
     <div className="flex p-4 flex-col items-center ">
-      <h1 className="text-3xl font-bold">
-        Recipe Finder <span>Plus</span>
+      <h1 className="lg:text-4xl text-3xl font-bold mb-2">
+        Recipe Finder <span className="text-orange-500">Plus</span>
       </h1>
-      <h3>Welcome to the recipe finder</h3>
+      {/* <h3>Welcome to the recipe finder</h3> */}
       <p>
         🍽️Embrace your inner chef! Let's find delicious recipes for your
         ingredients.🔎
