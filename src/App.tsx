@@ -61,10 +61,10 @@ function App() {
   return (
     <div className="flex p-4 flex-col items-center ">
       <h1 className="lg:text-4xl text-3xl font-bold mb-2">
-        Recipe Finder <span className="text-orange-500">Plus</span>
+        Recipe Finder <span className=" text-orange-500">Plus</span>
       </h1>
       {/* <h3>Welcome to the recipe finder</h3> */}
-      <p>
+      <p className="text-base font-semibold mt-4">
         🍽️Embrace your inner chef! Let's find delicious recipes for your
         ingredients.🔎
       </p>
@@ -89,7 +89,7 @@ function App() {
           +
         </button>
       </div>
-      <ul className="flex gap-4 mt-4 mb-2">
+      <ul className="flex gap-4 mt-4 mb-4">
         {params.map((param, index) => {
           return (
             <li
@@ -110,7 +110,7 @@ function App() {
       <Button onClick={handleSubmit} variant="search">
         Search
       </Button>
-      <div className="mt-4">
+      <div className="mt-4 lg:flex">
         {errorMsg && <p>{errorMsg}</p>}
         {recipes.map((recipe) => {
           return <RecipeCard recipe={recipe} key={recipe.id} />;
