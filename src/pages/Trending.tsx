@@ -6,12 +6,17 @@ const Trending = () => {
   const { data, isLoading, isError } = useQuery("trendingRecipes", () =>
     fetch(`https://localhost:7222/recipes/trending`).then((res) => res.json())
   );
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading) return;
+  <div className="flex flex-1 justify-center items-center min-w-full min-h-full">
+    <p className="text-2xl">Loading...</p>
+  </div>;
   console.log(data);
   return (
     <div>
-      <h1>Trending Recipes</h1>
-      <div>
+      <p className="md:text-3xl px-4 py-4 mb-4 text-orange-500 text-2xl font-bold">
+        Trending Recipes
+      </p>
+      <div className="flex flex-col items-center">
         {data.map((recipe: IRecipe) => (
           <RecipeCard recipe={recipe} key={recipe.id} />
         ))}
