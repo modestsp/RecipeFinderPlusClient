@@ -1,7 +1,6 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 // import  from "./styles/App.module.css";
 import RecipeCard from "./components/RecipeCard";
-import { motion } from "framer-motion";
 import { Input } from "./components/ui/input";
 import { Button } from "./components/ui/button";
 import { GrFormClose } from "react-icons/gr";
@@ -37,7 +36,7 @@ function App() {
     }
     const paramsToSearch = params.join(",");
     const result = await fetch(
-      `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${paramsToSearch}&number=2&apiKey=${
+      `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${paramsToSearch}&number=4&apiKey=${
         import.meta.env.VITE_API_KEY
       }`
     );
@@ -49,13 +48,6 @@ function App() {
       }, 3000);
     } else setErrorMsg(null);
     setRecipes(recipes);
-
-    console.log(
-      `${import.meta.env.VITE_INGREDIENTS_ROUTE}${params}&number=2&apiKey=${
-        import.meta.env.VITE_API_KEY
-      }`
-    );
-    console.log(recipes);
   };
 
   return (
@@ -110,7 +102,7 @@ function App() {
       <Button onClick={handleSubmit} variant="search">
         Search
       </Button>
-      <div className="mt-4 lg:flex">
+      <div className="mt-4 lg:flex lg:flex-wrap lg:justify-center">
         {errorMsg && <p>{errorMsg}</p>}
         {recipes.map((recipe) => {
           return <RecipeCard recipe={recipe} key={recipe.id} />;

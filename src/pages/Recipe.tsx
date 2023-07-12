@@ -1,16 +1,13 @@
 import { useParams } from "react-router-dom";
 import { IRecipeIngredient, IRecipeStep } from "../utils/types";
 import { useMutation, useQuery } from "react-query";
-import { AiOutlineLike, AiOutlineDislike } from "react-icons/ai";
+import { AiOutlineLike } from "react-icons/ai";
 import {
   Card,
   CardContent,
-  CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "../components/ui/card";
-import { Car } from "lucide-react";
 const Recipe = () => {
   const { recipeId } = useParams();
   const recipeDetails = useQuery("repoData", () =>

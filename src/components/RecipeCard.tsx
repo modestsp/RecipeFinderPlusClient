@@ -1,10 +1,9 @@
 import { IRecipe } from "../utils/types";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { AiOutlineLike } from "react-icons/ai";
 import {
   Card,
   CardContent,
-  CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
@@ -15,8 +14,6 @@ interface RecipeCardProps {
 }
 
 const RecipeCard = ({ recipe }: RecipeCardProps) => {
-  const navigate = useNavigate();
-
   return (
     // <div onClick={() => navigate(`/recipes/${recipe.id}`)}>
     //   <img src={recipe.image} alt={recipe.title} />
@@ -25,18 +22,18 @@ const RecipeCard = ({ recipe }: RecipeCardProps) => {
     //   </div>
     // </div>
     <Link to={`/recipes/${recipe.id}`}>
-      <Card className="bg-[#e6e6e6] border border-gray-400  m-2">
+      <Card className="bg-[#e6e6e6] hover:border-gray-600 lg:h-[26rem] md:w-96 w-80 border transition border-gray-400 m-4">
         <CardHeader>
-          <CardTitle className="lg:text-3xl text-2xl text-orange-500 font-bold hover:underline">
+          <CardTitle className="lg:text-3xl text-2xl text-orange-500 font-bold ">
             {recipe.title}
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <img src={recipe.image} alt={recipe.title} />
+          <img className="align-middle" src={recipe.image} alt={recipe.title} />
         </CardContent>
         <CardFooter>
           <AiOutlineLike />
-          <span className="font-semibold">{recipe.likes}</span>
+          <span className="font-semibold ">{recipe.likes}</span>
         </CardFooter>
       </Card>
     </Link>

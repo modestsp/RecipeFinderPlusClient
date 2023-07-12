@@ -1,11 +1,10 @@
 import { Link, useLocation } from "react-router-dom";
-import githubIcon from "../../assets/githubIcon.svg";
 import { useEffect, useState } from "react";
-import {
-  HoverCard,
-  HoverCardContent,
-  HoverCardTrigger,
-} from "../ui/hover-card";
+// import {
+//   HoverCard,
+//   HoverCardContent,
+//   HoverCardTrigger,
+// } from "../ui/hover-card";
 import { Button } from "../ui/button";
 
 const Header = () => {
