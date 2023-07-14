@@ -39,7 +39,6 @@ const Recipe = () => {
   if (recipeDetails.error) return <div>Error</div>;
 
   const handleAddRecipe = () => {
-    console.log({ id: recipeId, title: recipeDetails.data.title });
     mutation.mutate({
       id: recipeId,
       title: recipeDetails.data.title,

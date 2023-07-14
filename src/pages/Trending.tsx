@@ -13,7 +13,6 @@ const Trending = () => {
         <p className="text-2xl">Loading...</p>
       </div>
     );
-  console.log(data);
   return (
     <div>
       <p className="md:text-4xl px-4 py-4 mb-4 text-orange-500 text-3xl font-bold">
