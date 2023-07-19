@@ -4,7 +4,7 @@ import RecipeCard from "../components/RecipeCard";
 
 const Trending = () => {
   const { data, isLoading } = useQuery("trendingRecipes", () =>
-    fetch(`https://localhost:7222/recipes/trending`).then((res) => res.json())
+    fetch(`/recipes/trending`).then((res) => res.json())
   );
 
   if (isLoading)

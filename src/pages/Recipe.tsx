@@ -20,7 +20,7 @@ const Recipe = () => {
 
   const mutation = useMutation({
     mutationFn: (data: any) => {
-      return fetch("https://localhost:7222/recipes", {
+      return fetch("/recipes", {
         method: `POST`,
         headers: {
           "Content-Type": "application/json",
