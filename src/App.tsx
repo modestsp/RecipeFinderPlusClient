@@ -4,6 +4,7 @@ import RecipeCard from "./components/RecipeCard";
 import { Input } from "./components/ui/input";
 import { Button } from "./components/ui/button";
 import { GrFormClose } from "react-icons/gr";
+import { PlusIcon } from "lucide-react";
 
 function App() {
   const [current, setCurrent] = useState<string>("");
@@ -60,25 +61,16 @@ function App() {
         🍽️Embrace your inner chef! Let's find delicious recipes for your
         ingredients.🔎
       </p>
-      <div className="flex items-center gap-4 mt-4">
-        {/* <input
-          name="word"
-          value={current}
-          onChange={(e) => setCurrent(e.target.value)}
-          type="text"
-          placeholder="Add an ingredient"
-        /> */}
+      <div className="flex items-center  w-full sm:w-1/3 lg:w-1/4 gap-4 mt-4">
         <Input
           value={current}
           onChange={(e) => setCurrent(e.target.value)}
           type="text"
           placeholder="Add an ingredient"
+          className="w-full border border-gray-500"
         />
-        <button
-          className="rounded-lg text-2xl text-green-800 "
-          onClick={handleAddParam}
-        >
-          +
+        <button className="rounded-lg text-green-800 " onClick={handleAddParam}>
+          <PlusIcon />
         </button>
       </div>
       <ul className="flex gap-4 mt-4 mb-4">
@@ -95,10 +87,9 @@ function App() {
           );
         })}
       </ul>
-      <h3>{inputError}</h3>
-      {/* <motion.button whileTap={{ scale: 0.97 }} onClick={handleSubmit}>
-        Search
-      </motion.button> */}
+      <h3 className="font-semibold text-red-500 text-base mb-4">
+        {inputError}
+      </h3>
       <Button onClick={handleSubmit} variant="search">
         Search
       </Button>
