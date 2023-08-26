@@ -7,6 +7,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Recipe from "./pages/Recipe.tsx";
 import Trending from "./pages/Trending.tsx";
 import { QueryClient, QueryClientProvider } from "react-query";
+import Error from "./pages/Error.tsx";
 
 const router = createBrowserRouter([
   {
@@ -14,6 +15,11 @@ const router = createBrowserRouter([
     element: (
       <Layout>
         <App />
+      </Layout>
+    ),
+    errorElement: (
+      <Layout>
+        <Error />
       </Layout>
     ),
     // children: [
