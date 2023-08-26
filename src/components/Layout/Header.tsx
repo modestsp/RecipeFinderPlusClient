@@ -19,9 +19,9 @@ const Header = () => {
   });
   return (
     <header className="flex justify-between shadow bg-[#e6e6e6]  align-middle py-4 px-4 lg:px-10 border border-gray-300">
-      <p className="text-2xl font-bold text-gray-700">
+      <Link to="/" className="text-2xl font-bold text-gray-700">
         RF<span className=" text-orange-500 font-">Plus</span>
-      </p>
+      </Link>
       <ul className="flex ">
         <li>
           {" "}
